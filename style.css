@@ -1,0 +1,20 @@
+#menu-items:hover  {
+    color: rgb(67, 127, 142);
+    cursor: pointer;
+
+}
+
+.background1 {
+    background-color: azure;
+}
+
+.background2 {
+    background-color: rgb(243, 205, 231);
+}
+
+/* .imgSpecial {
+    max-width: 25em;
+    padding: none;
+    margin: none;
+
+} */
