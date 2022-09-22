@@ -12,9 +12,19 @@
     background-color: rgb(243, 205, 231);
 }
 
-/* .imgSpecial {
-    max-width: 25em;
-    padding: none;
-    margin: none;
+.imgSpecial {
+    
+    position: relative;
+    margin-bottom: -70px;
+    z-index: 1;
+    table-layout: fixed;
+    border-collapse: collapse;
 
-} */
+}
+
+.coneImg{
+    position: relative;
+    top: 10px;
+    left: 0;
+
+}
