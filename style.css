@@ -1,21 +1,29 @@
+
+.title-font {
+    font-family: 'Fredoka One', cursive;
+}
+
 #menu-items:hover  {
     color: rgb(67, 127, 142);
     cursor: pointer;
-
 }
 
-.background1 {
-    background-color: azure;
+.bg-pink {
+    background-color:rgb(255, 93, 143);
 }
 
-.background2 {
-    background-color: rgb(243, 205, 231);
+.bg-medium {
+    background-color: rgb(255, 166, 193);
+}
+
+.bg-light-pink {
+    background-color: rgb(250, 221, 225);
 }
 
 .imgSpecial {
     
     position: relative;
-    margin-bottom: -70px;
+    margin-bottom: -140px;
     z-index: 1;
     table-layout: fixed;
     border-collapse: collapse;
