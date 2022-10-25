@@ -18,13 +18,13 @@ const menuItems = [{
 }]
 
 const cone = [{
-    name: 'Suger Cone',
-    image: '',
+    name: 'Cake',
+    image: 'https://mattcones.com/wp-content/uploads/2017/03/large-cake-cone.png',
 }, {
     name: 'Bowl',
-    image: '',
+    image: 'https://www.nicepng.com/png/full/361-3610970_12-oz-compostable-sugarcane-bagasse-round-bowls-disposable.png',
 }, {
-    name: 'Waffle Cone',
+    name: 'Waffle',
     image: 'https://freepngimg.com/thumb/ice_cream/24787-5-ice-cream-cone-hd.png',
 },
 ]
@@ -36,14 +36,13 @@ function drawCone() {
     let coneTemplate = ''
     cone.forEach(coneType => {
         coneTemplate += `
-        <div class="col-10 text-center m-2 bg-pink row p-1 iceCreamFlavor rounded" onclick="order('${coneType.name}')">
-            <p class="bg-medium shadow-lg p-1 pe-0 mb-1 rounded fs-3 title-font">${coneType.name}</p>
+        <div class="col-10 text-center m-2 bg-medium row p-1 rounded" onclick="order('${coneType.name}')">
+            <p class="bg-pink shadow-lg p-1 pe-0 mb-1 rounded fs-3 title-font">${coneType.name}</p>
             <div class="">
                 <img class=" mt-0 img-fluid" src="${coneType.image}">
             </div>
         </div>
     `}) 
-    console.log(coneTemplate);
     let menuElm = document.getElementById('cone-type')
     menuElm.innerHTML = coneTemplate
 }
@@ -53,14 +52,13 @@ function drawMenu() {
     let flavorTemplate = ''
     menuItems.forEach(flavor => {
         flavorTemplate += `
-        <div class="col-5 text-center m-2 bg-pink row p-1 iceCreamFlavor rounded" onclick="order('${flavor.name}')">
+        <div class="col-5 text-center m-2 bg-pink row p-1 rounded" onclick="order('${flavor.name}')">
             <p class="bg-medium shadow-lg p-1 pe-0 mb-1 rounded fs-3 title-font">${flavor.name} <span class="fs-5 ps-3">$${flavor.price}</span></p>
             <div class="">
                 <img class=" mt-0 img-fluid" src="${flavor.image}">
             </div>
         </div>
     `}) 
-    console.log(flavorTemplate);
     let menuElm = document.getElementById('menu-items')
     menuElm.innerHTML = flavorTemplate
 }
@@ -73,10 +71,8 @@ function drawCart() {
     let cartTemplate = ''
     orders.forEach(order => {
         cartTemplate += `
-        <img class=" img-fluid imgSpecial" src="${orderCone.image}
-        <img class=" img-fluid imgSpecial" src="${order.image}">
+        <img class="img-fluid imgSpecial" src="${order.image}">
         `})
-    console.log(cartTemplate);
     let orderElm = document.getElementById('flavors-selected')
     orderElm.innerHTML = cartTemplate
 }
@@ -85,18 +81,14 @@ drawCart()
 
 function order(selectYourFlavor) {
     let foundFlavor = menuItems.find(fla => fla.name == selectYourFlavor)
-    orders.unshift(foundFlavor)
+    let foundCone = cone.find(c => c.name == selectYourFlavor)
+    orders.unshift(foundFlavor, foundCone)
 
     drawCart()
     drawTotal()
 }
 
-function orderCone(selectYourCone){
-    let foundCone = cone.find(c => c.name == selectYourCone)
-    orderCones.unshift(foundCone)
 
-    drawCart()
-}
 
 
 function drawTotal() {
