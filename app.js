@@ -20,19 +20,34 @@ const menuItems = [{
 const cone = [{
     name: 'Suger Cone',
     image: '',
-    price: 1
 }, {
     name: 'Bowl',
     image: '',
-    price: 1
 }, {
     name: 'Waffle Cone',
     image: 'https://freepngimg.com/thumb/ice_cream/24787-5-ice-cream-cone-hd.png',
-    price: 2
 },
 ]
 
 let orders = []
+let orderCones = []
+
+function drawCone() {
+    let coneTemplate = ''
+    cone.forEach(coneType => {
+        coneTemplate += `
+        <div class="col-10 text-center m-2 bg-pink row p-1 iceCreamFlavor rounded" onclick="order('${coneType.name}')">
+            <p class="bg-medium shadow-lg p-1 pe-0 mb-1 rounded fs-3 title-font">${coneType.name}</p>
+            <div class="">
+                <img class=" mt-0 img-fluid" src="${coneType.image}">
+            </div>
+        </div>
+    `}) 
+    console.log(coneTemplate);
+    let menuElm = document.getElementById('cone-type')
+    menuElm.innerHTML = coneTemplate
+}
+drawCone()
 
 function drawMenu() {
     let flavorTemplate = ''
@@ -52,10 +67,13 @@ function drawMenu() {
 drawMenu()
 
 
+
+
 function drawCart() {
     let cartTemplate = ''
     orders.forEach(order => {
         cartTemplate += `
+        <img class=" img-fluid imgSpecial" src="${orderCone.image}
         <img class=" img-fluid imgSpecial" src="${order.image}">
         `})
     console.log(cartTemplate);
@@ -71,6 +89,13 @@ function order(selectYourFlavor) {
 
     drawCart()
     drawTotal()
+}
+
+function orderCone(selectYourCone){
+    let foundCone = cone.find(c => c.name == selectYourCone)
+    orderCones.unshift(foundCone)
+
+    drawCart()
 }
 
 
