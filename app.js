@@ -6,19 +6,14 @@ const menuItems = [{
     }, {
         isCone: true,
         name: 'Bowl',
-        image: 'https://www.nicepng.com/png/full/361-3610970_12-oz-compostable-sugarcane-bagasse-round-bowls-disposable.png',
+        image: 'http://cdn.shopify.com/s/files/1/0262/8344/2269/products/MEGSB-SI_1_1024.png?v=1610782922',
         price: 1
     }, {
         isCone: true,
         name: 'Waffle',
         image: 'https://freepngimg.com/thumb/ice_cream/24787-5-ice-cream-cone-hd.png',
         price: 2
-    },{
-    isCone: false,
-    name: 'Cookie Dough',
-    image: 'https://www.hersheyicecream.com/products/images/premium-gold/cookie-doughlicious-scoop2.png',
-    price: 3
-}, {
+    }, {
     isCone: false,
     name: 'Vanilla',
     image: 'https://www.hersheyicecream.com/products/images/premium-gold/old-fashioned-vanilla-scoop2.png',
@@ -33,6 +28,21 @@ const menuItems = [{
     name: 'Chocolate',
     image: 'https://www.hersheyicecream.com/products/images/premium/heavenly-hazelnut-scoop2.png',
     price: 2
+},{
+    isCone: false,
+    name: 'Sprinkles',
+    image: 'https://toppng.com/uploads/thumbnail//roshambo-vending-awesome-robot-clip-art-black-and-white-sprinkles-11562897301ymzicgm5eo.png',
+    price: 1,
+},{
+    isCone: false,
+    name: 'Oreo',
+    image: 'https://www.micksfoods.com/wp-content/uploads/brizy/imgs/DARK-BITS-361x361x0x0x361x361x1650447983.webp',
+    price: 2
+},{
+    isCone: false,
+    name: 'Cherry',
+    image: 'https://www.thecocktaildb.com/images/ingredients/Maraschino%20Cherry.png',
+    price: 1
 },
 ]
 
@@ -44,8 +54,8 @@ function drawMenu() {
     let flavorTemplate = ''
     menuItems.forEach(flavor => {
         flavorTemplate += `
-        <div class="col-3 text-center m-2 p-1 bg-pink rounded" onclick="order('${flavor.name}')">
-            <p class="bg-medium shadow-lg p-1 pe-0 mb-1 rounded fs-3 title-font">${flavor.name} <span class="fs-5 ps-3">$${flavor.price}</span></p>
+        <div class="col-3 text-center m-3 p-1 bg-pink rounded" onclick="order('${flavor.name}')">
+            <p class="bg-medium shadow-lg p-1 pe-0 mb-1 rounded fs-4 title-font">${flavor.name} <span class="fs-5 ps-3">$${flavor.price}</span></p>
             <div class="">
                 <img class=" mt-0 img-fluid" src="${flavor.image}">
             </div>
@@ -77,11 +87,15 @@ function order(selectYourFlavor) {
     drawTotal()
 }
 
+function reset(){
+    drawCart()
+    drawTotal()
+}
+
 
 function drawTotal() {
     let subtotal = 0
     orders.forEach(order => subtotal += order.price)
-    console.log('subtotal', subtotal);
     let totalElm = document.getElementById('total')
     totalElm.innerText = subtotal
 }
