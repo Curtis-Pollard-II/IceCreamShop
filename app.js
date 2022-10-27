@@ -81,12 +81,13 @@ drawCart()
 
 function order(selectYourFlavor) {
     let foundFlavor = menuItems.find(fla => fla.name == selectYourFlavor)
-    let
     orders.unshift(foundFlavor)
-
+    document.getElementById("flavors-selected").style.zIndex ++
     drawCart()
     drawTotal()
 }
+
+
 
 function reset(){
     drawCart()
