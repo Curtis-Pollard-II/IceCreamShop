@@ -81,6 +81,7 @@ drawCart()
 
 function order(selectYourFlavor) {
     let foundFlavor = menuItems.find(fla => fla.name == selectYourFlavor)
+    let
     orders.unshift(foundFlavor)
 
     drawCart()
