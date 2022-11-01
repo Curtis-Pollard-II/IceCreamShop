@@ -1,19 +1,19 @@
 const menuItems = [{
-        isCone: true,
-        name: 'Cake',
-        image: 'https://mattcones.com/wp-content/uploads/2017/03/large-cake-cone.png',
-        price: 1
-    }, {
-        isCone: true,
-        name: 'Bowl',
-        image: 'http://cdn.shopify.com/s/files/1/0262/8344/2269/products/MEGSB-SI_1_1024.png?v=1610782922',
-        price: 1
-    }, {
-        isCone: true,
-        name: 'Waffle',
-        image: 'https://freepngimg.com/thumb/ice_cream/24787-5-ice-cream-cone-hd.png',
-        price: 2
-    }, {
+    isCone: true,
+    name: 'Cake',
+    image: 'https://mattcones.com/wp-content/uploads/2017/03/large-cake-cone.png',
+    price: 1
+}, {
+    isCone: true,
+    name: 'Bowl',
+    image: 'http://cdn.shopify.com/s/files/1/0262/8344/2269/products/MEGSB-SI_1_1024.png?v=1610782922',
+    price: 1
+}, {
+    isCone: true,
+    name: 'Waffle',
+    image: 'https://freepngimg.com/thumb/ice_cream/24787-5-ice-cream-cone-hd.png',
+    price: 2
+}, {
     isCone: false,
     name: 'Vanilla',
     image: 'https://www.hersheyicecream.com/products/images/premium-gold/old-fashioned-vanilla-scoop2.png',
@@ -28,19 +28,19 @@ const menuItems = [{
     name: 'Chocolate',
     image: 'https://www.hersheyicecream.com/products/images/premium/heavenly-hazelnut-scoop2.png',
     price: 2
-},{
+}, {
     isCone: false,
     name: 'Sprinkles',
     image: 'https://toppng.com/uploads/thumbnail//roshambo-vending-awesome-robot-clip-art-black-and-white-sprinkles-11562897301ymzicgm5eo.png',
     price: 1,
-},{
+}, {
     isCone: false,
     name: 'Oreo',
     image: 'https://www.micksfoods.com/wp-content/uploads/brizy/imgs/DARK-BITS-361x361x0x0x361x361x1650447983.webp',
     price: 2
-},{
+}, {
     isCone: false,
-    name: 'Cherry',
+    name: 'Cherry on top',
     image: 'https://www.thecocktaildb.com/images/ingredients/Maraschino%20Cherry.png',
     price: 1
 },
@@ -60,7 +60,7 @@ function drawMenu() {
                 <img class=" mt-0 img-fluid" src="${flavor.image}">
             </div>
         </div>
-    `}) 
+    `})
     let menuElm = document.getElementById('menu-items')
     menuElm.innerHTML = flavorTemplate
 }
@@ -78,18 +78,26 @@ function drawCart() {
 }
 drawCart()
 
-
-function order(selectYourFlavor) {
-    let foundFlavor = menuItems.find(fla => fla.name == selectYourFlavor)
-    orders.unshift(foundFlavor)
-    document.getElementById("flavors-selected").style.zIndex ++
-    drawCart()
-    drawTotal()
+var z = document.getElementById('Flavors-selected')[0].style.zIndex;
+function bringToTop(){
+    document.getElementById('Flavors-selected').children[0].style.display = "block"
+    document.getElementById('Flavors-selected').children[0].style.zIndex = z;
+    z = Number(z) + 1;
 }
 
 
 
-function reset(){
+function order(selectYourFlavor) {
+    let foundFlavor = menuItems.find(fla => fla.name == selectYourFlavor)
+    orders.unshift(foundFlavor)
+
+drawCart()
+drawTotal()
+}
+
+
+
+function reset() {
     drawCart()
     drawTotal()
 }
