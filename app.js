@@ -78,12 +78,12 @@ function drawCart() {
 }
 drawCart()
 
-var z = document.getElementById('Flavors-selected')[0].style.zIndex;
-function bringToTop(){
-    document.getElementById('Flavors-selected').children[0].style.display = "block"
-    document.getElementById('Flavors-selected').children[0].style.zIndex = z;
-    z = Number(z) + 1;
-}
+// var z = document.getElementById('Flavors-selected')[0].style.zIndex;
+// function bringToTop(){
+//     document.getElementById('Flavors-selected').children[0].style.display = "block"
+//     document.getElementById('Flavors-selected').children[0].style.zIndex = z;
+//     z = Number(z) + 1;
+// }
 
 
 
